@@ -1,2 +1,2 @@
-# simpeg
+# SIMPEG
 Sistem Informasi Manajemen Pegawai
