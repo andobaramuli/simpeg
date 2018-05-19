@@ -62,7 +62,7 @@
                     </li>
                     <h3 class="menu-title">KEPEGAWAIAN</h3><!-- /.menu-title -->
                     <li>
-                        <a href="biodata.php"> <i class="menu-icon ti-briefcase"></i>Biodata Pegawai </a>
+                        <a href="biodata/biodata.php"> <i class="menu-icon ti-briefcase"></i>Biodata Pegawai </a>
                     </li>
                     <li class="active">
                         <a href="cuti.php"> <i class="menu-icon ti-clipboard"></i>Ijin & Cuti </a>
