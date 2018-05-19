@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  if($_SESSION['logged'] == 1){
+
+  }else{
+    session_destroy();
+    header("Location:../index.php");
+  }
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -60,7 +70,7 @@
           <h3 class="menu-title">NOMINATIF</h3><!-- /.menu-title -->
 
           <li>
-            <a href="satuankerja.php"> <i class="menu-icon ti-files"></i>Unit/Satuan Kerja </a>
+            <a href="unitkerja.php"> <i class="menu-icon ti-files"></i>Unit Kerja </a>
           </li>
 
           <h3 class="menu-title">PENGATURAN</h3><!-- /.menu-title -->
@@ -103,6 +113,17 @@
             </div>
           </div>
 
+          <div class="language-select dropdown" id="language-select">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                  <?php
+                    if($_SESSION['peranpengguna'] == "1"){
+                      echo ucwords($_SESSION['namapengguna']);
+                    }else{
+                      echo "";
+                    }
+                  ?>
+              </a>
+          </div>
 
         </div>
       </div>
