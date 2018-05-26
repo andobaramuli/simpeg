@@ -16,16 +16,6 @@ class Uk extends CI_Controller
 
 	public function index()
 	{
-		$breadcrumbs = array(
-			array(
-				'name'	=> 'Home',
-				'url'	=> null
-			),
-			array(
-				'name'	=> '',
-				'url'	=> 'customers'
-			),
-		);
 		$data['unitkerja'] = $this->m_uk->getUnitKerja();
 		$this->layout->dressing("uk/uk",$data);
 	}

@@ -1,21 +1,26 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
- * File: m_dashboard.php
- * Functional: Dashboard model
- * Created Date: July 2017
- *
  * @author Ando Baramuli
  *
  **/
 
-class M_dashboard extends CI_Model
+class M_suk extends CI_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
 	}
 
-	
+	public function getSubUnitKerja()
+	{
+		$this->db->select('suk.id, suk.subunitkerja, uk.unitname');
+		$this->db->from('subunitkerja suk');
+		$this->db->join('unitkerja uk','suk.unitkerjaid=uk.id');
+		$query = $this->db->get();
+		$result = $query->result();
+
+		return $result;
+	}
 
 }
