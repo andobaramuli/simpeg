@@ -21,9 +21,9 @@
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Profil Saya</a>
 
-                            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Keluar</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Biodata Pegawai</h1>
+                    <h1>Sub Sub Unit Kerja</h1>
                 </div>
             </div>
         </div>
@@ -44,8 +44,8 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">Kepegawaian</a></li>
-                        <li class="active">Biodata Pegawai</li>
+                        <li><a href="#">Pengaturan</a></li>
+                        <li>Sub Sub Unit Kerja</li>
                     </ol>
                 </div>
             </div>
@@ -59,38 +59,28 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Tabel Pegawai</strong>
-                        <a href="tambahbiodata.php" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Tambah Pegawai</a>
+                        <strong class="card-title">Tabel Sub Sub Unit Kerja</strong>
+                        <a href="<?=site_url()?>ssuk/addssuk" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Tambah Sub Sub Unit Kerja</a>
                     </div>
                     <div class="card-body">
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Nama</th>
-                    <th>Posisi</th>
-                    <th>Satuan Kerja</th>
+                    <th>#</th>
+                    <th>Sub Sub Unit Kerja</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php foreach ($ssuk as $key => $value) {
+                  ?>
                   <tr>
-                    <td>Dareen Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Peternakan Salatiga</td>
+                    <td><?=$key+1?></td>
+                    <td><?=$value->subsubunitkerja?></td>
                     <td></td>
                   </tr>
-                  <tr>
-                    <td>Adriel Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Perkebunan Salatiga</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Louis Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Tata Kota Salatiga</td>
-                    <td></td>
-                  </tr>
+                  <?php
+                  }?>
                 </tbody>
               </table>
                     </div>
