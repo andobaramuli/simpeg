@@ -16,84 +16,64 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`simpeg` /*!40100 DEFAULT CHARACTER SET 
 
 USE `simpeg`;
 
-/*Table structure for table `pegawai` */
+/*Table structure for table `role` */
 
-DROP TABLE IF EXISTS `pegawai`;
+DROP TABLE IF EXISTS `role`;
 
-CREATE TABLE `pegawai` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
-  `nip` char(18) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `tempatlahir` varchar(100) NOT NULL,
-  `tanggallahir` date NOT NULL,
-  `jeniskelamin` enum('L','P') NOT NULL,
-  `golongandarah` enum('O','A','B','AB') NOT NULL,
-  `agama` enum('Islam','Kristen Protestan','Kristen Katholik','Hindu','Budha','Konghucu') NOT NULL,
-  `statuspegawai` varchar(100) NOT NULL,
-  `jeniskepegawaian` varchar(100) NOT NULL,
-  `statuspernikahan` enum('Belum Menikah','Menikah','Janda','Duda','Bercerai') NOT NULL,
-  `kedudukanpegawai` enum('Aktif','Tidak Aktif') NOT NULL,
-  `alamatrumah` varchar(200) NOT NULL,
-  `suratelektronik` varchar(100) NOT NULL,
-  `nokarpeg` varchar(50) NOT NULL,
-  `nojkn` varchar(50) NOT NULL,
-  `notaspen` varchar(50) NOT NULL,
-  `nokariskarsu` varchar(50) NOT NULL,
-  `npwp` varchar(50) NOT NULL,
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `role` */
+
+insert  into `role`(`id`,`rolename`) values (1,'Admin');
+
+/*Table structure for table `staff` */
+
+DROP TABLE IF EXISTS `staff`;
+
+CREATE TABLE `staff` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nik` varchar(50) NOT NULL,
+  `nip` char(18) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `placeofbirth` varchar(100) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `gender` enum('L','P') NOT NULL,
+  `bloodtype` enum('O','A','B','AB') NOT NULL,
+  `religion` enum('Islam','Kristen Protestan','Kristen Katholik','Hindu','Budha','Konghucu') NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `stafftype` varchar(100) NOT NULL,
+  `maritalstatus` enum('Belum Menikah','Menikah','Janda','Duda','Bercerai') NOT NULL,
+  `staffstatus` enum('Aktif','Tidak Aktif') NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `cardno` varchar(50) NOT NULL,
+  `jkn` varchar(50) NOT NULL,
+  `taspen` varchar(50) NOT NULL,
+  `kariskarsu` varchar(50) NOT NULL,
+  `npwp` varchar(50) NOT NULL,
   `golongan` varchar(50) NOT NULL,
   `pangkat` varchar(50) NOT NULL,
   `tmtjabatan` varchar(50) NOT NULL,
   `jabatan` varchar(50) NOT NULL,
   `eselon` varchar(50) NOT NULL,
-  PRIMARY KEY (`kode`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `pegawai` */
-
-/*Table structure for table `pengguna` */
-
-DROP TABLE IF EXISTS `pengguna`;
-
-CREATE TABLE `pengguna` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
-  `namapengguna` varchar(100) NOT NULL,
-  `katakunci` varchar(100) NOT NULL,
-  `kodeperan` int(11) NOT NULL,
-  `tanggalbuat` datetime NOT NULL,
-  `dibuatoleh` int(11) NOT NULL,
-  `tanggalubah` datetime DEFAULT NULL,
-  `diubaholeh` int(11) DEFAULT NULL,
-  PRIMARY KEY (`kode`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-/*Data for the table `pengguna` */
-
-insert  into `pengguna`(`kode`,`namapengguna`,`katakunci`,`kodeperan`,`tanggalbuat`,`dibuatoleh`,`tanggalubah`,`diubaholeh`) values (1,'admin','ee10c315eba2c75b403ea99136f5b48d',1,'2018-05-13 13:03:58',0,NULL,NULL);
-
-/*Table structure for table `peran` */
-
-DROP TABLE IF EXISTS `peran`;
-
-CREATE TABLE `peran` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
-  `namaperan` varchar(100) NOT NULL,
-  PRIMARY KEY (`kode`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-/*Data for the table `peran` */
-
-insert  into `peran`(`kode`,`namaperan`) values (1,'Admin');
+/*Data for the table `staff` */
 
 /*Table structure for table `subsubunitkerja` */
 
 DROP TABLE IF EXISTS `subsubunitkerja`;
 
 CREATE TABLE `subsubunitkerja` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subsubunitkerja` varchar(100) NOT NULL,
-  `kodesubunitkerja` int(11) NOT NULL,
-  PRIMARY KEY (`kode`)
+  `subunitkerjaid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `subsubunitkerja` */
@@ -103,10 +83,10 @@ CREATE TABLE `subsubunitkerja` (
 DROP TABLE IF EXISTS `subunitkerja`;
 
 CREATE TABLE `subunitkerja` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subunitkerja` varchar(100) DEFAULT NULL,
-  `kodeunitkerja` int(11) DEFAULT NULL,
-  PRIMARY KEY (`kode`)
+  `unitkerjaid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `subunitkerja` */
@@ -116,12 +96,34 @@ CREATE TABLE `subunitkerja` (
 DROP TABLE IF EXISTS `unitkerja`;
 
 CREATE TABLE `unitkerja` (
-  `kode` int(11) NOT NULL AUTO_INCREMENT,
-  `namaunit` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`kode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `unitname` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `unitkerja` */
+
+insert  into `unitkerja`(`id`,`unitname`) values (1,'asdfasdfasdf'),(2,'adsfasdfasdfasdfasd'),(3,'asdfasdfasdfadsfasdfasdfadsfadsfasdfasdf'),(4,'doremie');
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `roleid` int(11) NOT NULL,
+  `createddate` datetime NOT NULL,
+  `createdby` int(11) NOT NULL,
+  `modifieddate` datetime DEFAULT NULL,
+  `modifiedby` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`username`,`password`,`roleid`,`createddate`,`createdby`,`modifieddate`,`modifiedby`) values (1,'admin','ee10c315eba2c75b403ea99136f5b48d',1,'2018-05-13 13:03:58',0,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
