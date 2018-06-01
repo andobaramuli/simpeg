@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?=base_url()?>assets/css/themify-icons.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/lib/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/lib/chosen/chosen.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/lib/datatable/dataTables.bootstrap.min.css">
 

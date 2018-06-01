@@ -34,10 +34,11 @@ jQuery(document).ready(function($) {
 	// 	$('.user-menu').parent().toggleClass('open');
 	// });
 
-  $(".standardSelect").chosen({
-      disable_search_threshold: 10,
-      no_results_text: "No Data Available!",
-      width: "100%"
+	$(".date").daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true
   });
+
+
 
 });
