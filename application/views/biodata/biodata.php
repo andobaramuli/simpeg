@@ -14,18 +14,20 @@
                 </div>
             </div>
 
-            <div class="col-sm-5">
-                <div class="user-area dropdown float-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
-                    </a>
+            <div class="col-xl-5">
+              <div class="user-area">
+                <div class="float-left mt-2 mr-2"><?=ucwords($this->session->userdata['namapengguna'])?></div>
+                <div class="dropdown float-right">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
+                  </a>
 
-                    <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
-                    </div>
+                  <div class="user-menu dropdown-menu">
+                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                    <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
 
@@ -66,31 +68,27 @@
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Nama</th>
-                    <th>Posisi</th>
-                    <th>Satuan Kerja</th>
+                    <th>Unit Kerja</th>
+                    <th>Jabatan</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                    foreach ($pegawai as $key => $value) {
+                  ?>
                   <tr>
-                    <td>Dareen Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Peternakan Salatiga</td>
+                    <td><?=$key+1?></td>
+                    <td><?=$value->namalengkap?></td>
+                    <td><?=$value->unitkerja?></td>
+                    <td><?=$value->jabatan?></td>
                     <td></td>
                   </tr>
-                  <tr>
-                    <td>Adriel Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Perkebunan Salatiga</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Louis Baramuli</td>
-                    <td>Kepala Dinas</td>
-                    <td>Dinas Tata Kota Salatiga</td>
-                    <td></td>
-                  </tr>
+                  <?php
+                    }
+                  ?>
                 </tbody>
               </table>
                     </div>

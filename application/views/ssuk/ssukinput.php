@@ -14,16 +14,18 @@
         </div>
       </div>
 
-      <div class="col-sm-5">
-        <div class="user-area dropdown float-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
-          </a>
+      <div class="col-xl-5">
+        <div class="user-area">
+          <div class="float-left mt-2 mr-2"><?=ucwords($this->session->userdata['namapengguna'])?></div>
+          <div class="dropdown float-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
+            </a>
 
-          <div class="user-menu dropdown-menu">
-            <a class="nav-link" href="#"><i class="fa fa- user"></i>Profil Saya</a>
-
-            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Keluar</a>
+            <div class="user-menu dropdown-menu">
+              <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+              <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+            </div>
           </div>
         </div>
       </div>
@@ -75,7 +77,7 @@
                       <?php
                         foreach ($suk as $key => $value) {
                       ?>
-                        <option value="<?=$value->id?>"><?=$value->subunitkerja?></option>
+                        <option value="<?=$value->kode?>"><?=$value->subunitkerja?></option>
                       <?php
                         }
                       ?>

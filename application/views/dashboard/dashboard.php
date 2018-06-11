@@ -7,26 +7,27 @@
 
     <div class="header-menu">
 
-      <div class="col-sm-7">
+      <div class="col-xl-7">
         <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-        <div class="header-left">
-
-        </div>
+        <div class="header-left"></div>
       </div>
 
-      <div class="col-sm-5">
-        <div class="user-area dropdown float-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
-          </a>
+      <div class="col-xl-5">
+        <div class="user-area">
+          <div class="float-left mt-2 mr-2"><?=ucwords($this->session->userdata['namapengguna'])?></div>
+          <div class="dropdown float-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
+            </a>
 
-          <div class="user-menu dropdown-menu">
-            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+            <div class="user-menu dropdown-menu">
+              <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+              <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
   </header><!-- /header -->
@@ -60,7 +61,7 @@
               <div class="stat-widget-one">
                 <div class="stat-icon dib"><i class="ti-user"></i></div>
                 <div class="stat-content dib">
-                  <div class="text-white stat-digit">961</div>
+                  <div class="text-white stat-digit"><?=$totalpegawai?></div>
                   <div class="text-white stat-text">Total Pegawai</div>
                 </div>
               </div>
@@ -71,9 +72,9 @@
           <div class="card text-white bg-flat-color-2">
             <div class="card-body">
               <div class="stat-widget-one">
-                <div class="stat-icon dib"><i class="ti-user"></i></div>
+                <div class="stat-icon dib"><i class="ti-layout-grid2-alt"></i></div>
                 <div class="stat-content dib">
-                  <div class="text-white stat-digit">961</div>
+                  <div class="text-white stat-digit"><?=$totaluk?></div>
                   <div class="text-white stat-text">Unit Kerja</div>
                 </div>
               </div>
@@ -84,9 +85,9 @@
           <div class="card text-white bg-flat-color-3">
             <div class="card-body">
               <div class="stat-widget-one">
-                <div class="stat-icon dib"><i class="ti-user"></i></div>
+                <div class="stat-icon dib"><i class="ti-layout-grid3-alt"></i></div>
                 <div class="stat-content dib">
-                  <div class="text-white stat-digit">961</div>
+                  <div class="text-white stat-digit"><?=$totalsuk?></div>
                   <div class="text-white stat-text">Subunit Kerja</div>
                 </div>
               </div>
@@ -97,9 +98,9 @@
           <div class="card text-white bg-flat-color-4">
             <div class="card-body">
               <div class="stat-widget-one">
-                <div class="stat-icon dib"><i class="ti-user"></i></div>
+                <div class="stat-icon dib"><i class="ti-layout-grid4-alt"></i></div>
                 <div class="stat-content dib">
-                  <div class="text-white stat-digit">961</div>
+                  <div class="text-white stat-digit"><?=$totalssuk?></div>
                   <div class="text-white stat-text">Sub Subunit Kerja</div>
                 </div>
               </div>

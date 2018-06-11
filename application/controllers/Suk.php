@@ -13,6 +13,10 @@ class Suk extends CI_Controller
 		$this->load->model('m_general');
 		$this->load->model('m_uk');
 		$this->load->model('m_suk');
+
+		if(!$this->session){
+			redirect('auth/logout');
+		}
 	}
 
 	public function index()
@@ -30,10 +34,10 @@ class Suk extends CI_Controller
 
 			if ($this->form_validation->run() == TRUE) {
 				$subunitkerja = $this->input->post('subunitkerja');
-				$unitkerjaid = $this->input->post('unitkerja');
+				$kodeunitkerja = $this->input->post('unitkerja');
 				$data = array(
 					'subunitkerja'		=> $subunitkerja,
-					'unitkerjaid'		=> $unitkerjaid
+					'kodeunitkerja'		=> $kodeunitkerja
 				);
 				$result = $this->m_general->insertData('subunitkerja', $data);
 

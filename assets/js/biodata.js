@@ -8,10 +8,10 @@ $(document).ready(function() {
         type: "POST",
         data: { 'ukid' : $(this).val() },
         success : function(r) {
-          var html = '<option value=""></option>';
+          var html = '<option value="0">-- pilih subunit kerja --</option>';
 
           for(var i=0; i < r.length; i++){
-            html = html + '<option value="'+r[i].id+'">'+r[i].subunitkerja+'</option>';
+            html = html + '<option value="'+r[i].kode+'">'+r[i].subunitkerja+'</option>';
           }
 
           $('#subunitkerja').html(html);
@@ -28,10 +28,10 @@ $(document).ready(function() {
         type: "POST",
         data: { 'sukid' : $(this).val() },
         success : function(r) {
-          var html = '<option value=""></option>';
+          var html = '<option value="0">-- pilih sub subunit kerja --</option>';
 
           for(var i=0; i < r.length; i++){
-            html = html + '<option value="'+r[i].id+'">'+r[i].subsubunitkerja+'</option>';
+            html = html + '<option value="'+r[i].kode+'">'+r[i].subsubunitkerja+'</option>';
           }
 
           $('#subsubunitkerja').html(html);

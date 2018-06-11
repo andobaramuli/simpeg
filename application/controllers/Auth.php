@@ -1,10 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
- * File: Auth.php
- * Functional: Authentication Controller
- * Created Date: July 2017
- *
  * @author Ando Baramuli
  *
  **/
@@ -38,18 +34,18 @@ class Auth extends CI_Controller {
   		}
       else
       {
-  			$result = $this->m_auth->verify_login($username, $password);
+  			$result = $this->m_auth->verifyLogin($username, $password);
+				
         if ($result['valid'])
         {
-  				// $userdata = array(
-  				// 	'sessionid' => 'simpeg',
-  				// 	'loggedin'  => true,
-  				// 	'userid'    => $result[],
-  				// 	'staffid'   => $result[],
-  				// 	'username'  => $result[],
-  				// 	'userrole'  => $result[],
-  				// );
-  				// $this->session->set_userdata($userdata);
+  				$userdata = array(
+  					'login' 				=> true,
+  					'kodepengguna'  => $result['kode'],
+  					'namapengguna' 	=> $result['namapengguna'],
+						'kodepegawai' 	=> $result['kodepegawai'],
+						'kodeperan'		 	=> $result['kodeperan']
+  				);
+  				$this->session->set_userdata($userdata);
 					redirect('dashboard/index');
   			}
         else
@@ -65,6 +61,8 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
+		$this->session->unset_userdata('userdata');
+		$this->session->sess_destroy();
 		redirect(base_url());
 	}
 

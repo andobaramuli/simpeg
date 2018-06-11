@@ -14,9 +14,9 @@ class M_suk extends CI_Model
 
 	public function getSubUnitKerja()
 	{
-		$this->db->select('suk.id, suk.subunitkerja, uk.unitname');
+		$this->db->select('suk.kode, suk.subunitkerja, uk.unitkerja');
 		$this->db->from('subunitkerja suk');
-		$this->db->join('unitkerja uk','suk.unitkerjaid=uk.id');
+		$this->db->join('unitkerja uk','suk.kodeunitkerja=uk.kode');
 		$query = $this->db->get();
 		$result = $query->result();
 

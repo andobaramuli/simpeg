@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 
 	$(".date").daterangepicker({
     singleDatePicker: true,
-    showDropdowns: true
+    showDropdowns: true,
   });
 
 

@@ -14,6 +14,10 @@ class Ssuk extends CI_Controller
 		$this->load->model('m_uk');
 		$this->load->model('m_suk');
 		$this->load->model('m_ssuk');
+
+		if(!$this->session){
+			redirect('auth/logout');
+		}
 	}
 
 	public function index()
@@ -31,10 +35,10 @@ class Ssuk extends CI_Controller
 
 			if ($this->form_validation->run() == TRUE) {
 				$subsubunitkerja = $this->input->post('subsubunitkerja');
-				$subunitkerjaid = $this->input->post('subunitkerja');
+				$kodesubunitkerja = $this->input->post('subunitkerja');
 				$data = array(
 					'subsubunitkerja'		=> $subsubunitkerja,
-					'subunitkerjaid'		=> $subunitkerjaid
+					'kodesubunitkerja'	=> $kodesubunitkerja
 				);
 				$result = $this->m_general->insertData('subsubunitkerja', $data);
 

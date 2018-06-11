@@ -12,6 +12,10 @@ class Uk extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_general');
 		$this->load->model('m_uk');
+
+		if(!$this->session){
+			redirect('auth/logout');
+		}
 	}
 
 	public function index()
@@ -30,7 +34,7 @@ class Uk extends CI_Controller
 			if ($this->form_validation->run() == TRUE) {
 				$unitkerja = $this->input->post('unitkerja');
 				$data = array(
-					'unitname'		=> $unitkerja,
+					'unitkerja'		=> $unitkerja,
 				);
 				$result = $this->m_general->insertData('unitkerja', $data);
 

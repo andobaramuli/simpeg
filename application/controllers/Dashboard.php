@@ -1,10 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
- * File: Dashboard.php
- * Functional: Dashboard Controller
- * Created Date: July 2017
- *
  * @author Ando Baramuli
  *
  **/
@@ -15,10 +11,18 @@ class Dashboard extends CI_Controller
   {
 		parent::__construct();
 		$this->load->model('m_dashboard');
+
+		if(!$this->session){
+			redirect('auth/logout');
+		}
 	}
 
 	public function index()
 	{
-		$this->layout->dressing("dashboard/dashboard",NULL);
+		$data['totalpegawai'] = $this->m_dashboard->getTotalPegawai();
+		$data['totaluk'] = $this->m_dashboard->getTotalUnitKerja();
+		$data['totalsuk'] = $this->m_dashboard->getTotalSubunitKerja();
+		$data['totalssuk'] = $this->m_dashboard->getTotalSubsubunitKerja();
+		$this->layout->dressing("dashboard/dashboard",$data);
 	}
 }

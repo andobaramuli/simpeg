@@ -14,7 +14,7 @@ class M_uk extends CI_Model
 
 	public function getUnitKerja()
 	{
-		$this->db->select('id, unitname');
+		$this->db->select('kode, unitkerja');
 		$this->db->from('unitkerja');
 		$query = $this->db->get();
 		$result = $query->result();

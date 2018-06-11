@@ -14,16 +14,18 @@
         </div>
       </div>
 
-      <div class="col-sm-5">
-        <div class="user-area dropdown float-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
-          </a>
+      <div class="col-xl-5">
+        <div class="user-area">
+          <div class="float-left mt-2 mr-2"><?=ucwords($this->session->userdata['namapengguna'])?></div>
+          <div class="dropdown float-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="user-avatar rounded-circle" src="<?=base_url()?>assets/img/admin.png" alt="User Avatar">
+            </a>
 
-          <div class="user-menu dropdown-menu">
-            <a class="nav-link" href="#"><i class="fa fa- user"></i>Profil Saya</a>
-
-            <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Keluar</a>
+            <div class="user-menu dropdown-menu">
+              <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+              <a class="nav-link" href="<?=site_url()?>auth/logout"><i class="fa fa-power -off"></i>Logout</a>
+            </div>
           </div>
         </div>
       </div>
@@ -60,20 +62,20 @@
           <div class="card">
             <form action="<?=site_url()?>biodata/addbiodata" method="post">
               <div class="card-header">
-                <strong class="card-title">Pilih Lokasi Kerja</strong>
+                <strong class="card-title">Lokasi Kerja</strong>
               </div>
               <div class="card-body">
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Unit Kerja</label>
+                    <label for="text-input" class=" form-control-label">UNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select id="unitkerja" name="unitkerja" data-placeholder="Pilih Unit Kerja" class="form-control" tabindex="1">
-                      <option value="">Pilih Unit Kerja</option>
+                      <option value="0">-- pilih unit kerja --</option>
                       <?php
                       foreach ($uk as $key => $value) {
                         ?>
-                        <option value="<?=$value->id?>"><?=$value->unitname?></option>
+                        <option value="<?=$value->kode?>"><?=$value->unitkerja?></option>
                         <?php
                       }
                       ?>
@@ -82,40 +84,48 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Subunit Kerja</label>
+                    <label for="text-input" class=" form-control-label">SUBUNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select id="subunitkerja" name="subunitkerja" data-placeholder="Pilih Sub Unit Kerja" class="form-control" tabindex="1">
-                      <option value=""></option>
+                      <option value="0">-- pilih subunit kerja --</option>
                     </select>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Sub Subnit Kerja</label>
+                    <label for="text-input" class=" form-control-label">SUB SUBUNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select id="subsubunitkerja" name="subsubunitkerja" data-placeholder="Pilih Sub Subunit Kerja" class="form-control" tabindex="1">
-                      <option value=""></option>
+                      <option value="0">-- pilih sub subunit kerja --</option>
                     </select>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-lg-3">
+                    <label for="text-input" class=" form-control-label">TERHITUNG MULAI TANGGAL*</label>
+                  </div>
+                  <div class="col-lg-9">
+                    <input type="text" id="" name="tmtlokasikerja" placeholder="" class="form-control date">
                   </div>
                 </div>
               </div>
               <div class="card-header">
-                <strong class="card-title">Input Biodata</strong>
+                <strong class="card-title">Profil Pegawai</strong>
               </div>
               <div class="card-body">
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NO. INDUK PEGAWAI</label>
+                    <label for="text-input" class=" form-control-label">NO. INDUK PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="nik" name="nik" value="" placeholder="" class="form-control">
+                    <input type="text" id="nip" name="nip" value="" placeholder="" class="form-control">
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NAMA</label>
+                    <label for="text-input" class=" form-control-label">NAMA LENGKAP*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="nama" name="nama" value="" placeholder="" class="form-control">
@@ -123,33 +133,33 @@
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">TEMPAT LAHIR</label>
+                    <label for="text-input" class=" form-control-label">TEMPAT LAHIR*</label>
                   </div>
                   <div class="col-lg-4">
-                    <input type="text" id="pob" name="pob" value="" placeholder="" class="form-control">
+                    <input type="text" id="tempatlahir" name="tempatlahir" value="" placeholder="" class="form-control">
                   </div>
                   <div class="col-lg-2">
-                    <label for="text-input" class=" form-control-label">TANGGAL LAHIR</label>
+                    <label for="text-input" class=" form-control-label">TANGGAL LAHIR*</label>
                   </div>
                   <div class="col-lg-3">
-                    <input type="text" id="dob" name="dob" value="" placeholder="" class="form-control date">
+                    <input type="text" id="tanggallahir" name="tanggallahir" value="" placeholder="" class="form-control date">
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">JENIS KELAMIN</label>
+                    <label for="text-input" class=" form-control-label">JENIS KELAMIN*</label>
                   </div>
                   <div class="col-lg-3">
-                    <select name="gender" class=" form-control " tabindex="1">
+                    <select name="jeniskelamin" class=" form-control " tabindex="1">
                       <option value="L">Laki-Laki</option>
                       <option value="P">Perempuan</option>
                     </select>
                   </div>
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">GOLONGAN DARAH</label>
+                    <label for="text-input" class=" form-control-label">GOLONGAN DARAH*</label>
                   </div>
                   <div class="col-lg-3">
-                    <select name="bloodtype" class=" form-control " tabindex="1">
+                    <select name="golongandarah" class=" form-control " tabindex="1">
                       <option value="A">A</option>
                       <option value="B">B</option>
                       <option value="AB">AB</option>
@@ -159,10 +169,10 @@
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">STATUS PERNIKAHAN</label>
+                    <label for="text-input" class=" form-control-label">STATUS PERNIKAHAN*</label>
                   </div>
                   <div class="col-lg-3">
-                    <select name="maritalstatus" class=" form-control " tabindex="1">
+                    <select name="statusnikah" class=" form-control " tabindex="1">
                       <option value="Belum Menikah">Belum Menikah</option>
                       <option value="Menikah">Menikah</option>
                       <option value="Janda">Janda</option>
@@ -171,10 +181,10 @@
                     </select>
                   </div>
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">AGAMA</label>
+                    <label for="text-input" class=" form-control-label">AGAMA*</label>
                   </div>
                   <div class="col-lg-3">
-                    <select name="religion" class=" form-control " tabindex="1">
+                    <select name="agama" class=" form-control " tabindex="1">
                       <option value="Islam">Islam</option>
                       <option value="Kristen Protestan">Kristen Protestan</option>
                       <option value="Kristen Katholik">Kristen Katholik</option>
@@ -186,48 +196,63 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">STATUS PEGAWAI</label>
+                    <label for="text-input" class=" form-control-label">STATUS PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select name="statuspegawai" class=" form-control " tabindex="1">
-                      <option value=""></option>
-                      <option value=""></option>
+                      <?php
+                      foreach ($stapeg as $key => $value) {
+                        ?>
+                        <option value="<?=$value->kode?>"><?=$value->statuspegawai?></option>
+                        <?php
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">JENIS KEPEGAWAIAN</label>
+                    <label for="text-input" class=" form-control-label">JENIS KEPEGAWAIAN*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select name="jeniskepegawaian" class=" form-control " tabindex="1">
-                      <option value=""></option>
-                      <option value=""></option>
+                      <?php
+                      foreach ($jenpeg as $key => $value) {
+                        ?>
+                        <option value="<?=$value->kode?>"><?=$value->jenispegawai?></option>
+                        <?php
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">KEDUDUKAN PEGAWAI</label>
+                    <label for="text-input" class=" form-control-label">KEDUDUKAN PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <select name="kedudukanpegawai" class=" form-control " tabindex="1">
-                      <option value=""></option>
-                      <option value=""></option>
+                      <?php
+                      foreach ($dukpeg as $key => $value) {
+                        ?>
+                        <option value="<?=$value->kode?>"><?=$value->kedudukanpegawai?></option>
+                        <?php
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">ALAMAT RUMAH</label>
+                    <label for="text-input" class=" form-control-label">ALAMAT RUMAH*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <textarea name="address" id="" rows="4" placeholder="" class="form-control"></textarea>
+                    <textarea name="alamat" id="" rows="4" placeholder="" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NO. KARTU PEGAWAI</label>
+                    <label for="text-input" class=" form-control-label">NO. KARTU PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="karpeg" value="" placeholder="" class="form-control">
@@ -235,7 +260,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NO. KARTU ASKES</label>
+                    <label for="text-input" class=" form-control-label">NO. KARTU ASKES*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="askes" value="" placeholder="" class="form-control">
@@ -243,7 +268,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">KARTU TASPEN</label>
+                    <label for="text-input" class=" form-control-label">NO. KARTU TASPEN*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="taspen" value="" placeholder="" class="form-control">
@@ -251,7 +276,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NO. KARTU ISTRI / KARTU SUAMI</label>
+                    <label for="text-input" class=" form-control-label">NO. KARTU ISTRI / KARTU SUAMI*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="kariskarsu" value="" placeholder="" class="form-control">
@@ -259,7 +284,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">N P W P</label>
+                    <label for="text-input" class=" form-control-label">N P W P*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="npwp" value="" placeholder="" class="form-control">
@@ -267,7 +292,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">NO. INDUK KEPENDUDUKAN</label>
+                    <label for="text-input" class=" form-control-label">NO. INDUK KEPENDUDUKAN*</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="text" id="" name="nik" value="" placeholder="" class="form-control">
@@ -280,18 +305,24 @@
               <div class="card-body">
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">NAMA PANGKAT</label>
+                    <label for="text-input" class=" form-control-label">NAMA PANGKAT*</label>
                   </div>
                   <div class="col-lg-9">
                     <select name="pangkat" class=" form-control " tabindex="1">
-                      <option value=""></option>
-                      <option value=""></option>
+                      <option value="">-- pilih pangkat --</option>
+                      <?php
+                      foreach ($pangkat as $key => $value) {
+                        ?>
+                        <option value="<?=$value->kode?>"><?=$value->namapangkat?></option>
+                        <?php
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">TERHITUNG MULAI TANGGAL</label>
+                    <label for="text-input" class=" form-control-label">TERHITUNG MULAI TANGGAL*</label>
                   </div>
                   <div class="col-lg-9">
                     <input type="text" id="" name="tmtpangkat" placeholder="" class="form-control date">
@@ -304,15 +335,15 @@
               <div class="card-body">
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">JABATAN</label>
+                    <label for="text-input" class=" form-control-label">JABATAN*</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" id="" name="jabatanterakhir" value="" placeholder="" class="form-control">
+                    <input type="text" id="" name="jabatan" value="" placeholder="" class="form-control">
                   </div>
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">TUGAS DALAM UNIT KERJA</label>
+                    <label for="text-input" class=" form-control-label">TUGAS DALAM UNIT KERJA*</label>
                   </div>
                   <div class="col-lg-9">
                     <input type="text" id="" name="tugasunitkerja" value="" placeholder="" class="form-control">
@@ -320,7 +351,7 @@
                 </div>
                 <div class="row form-group">
                   <div class="col-lg-3">
-                    <label for="text-input" class=" form-control-label">TERHITUNG MULAI TANGGAL</label>
+                    <label for="text-input" class=" form-control-label">TERHITUNG MULAI TANGGAL*</label>
                   </div>
                   <div class="col-lg-9">
                     <input type="text" id="" name="tmtjabatan" value="" placeholder="" class="form-control date">
