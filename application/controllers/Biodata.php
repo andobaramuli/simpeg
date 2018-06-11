@@ -91,7 +91,7 @@ class Biodata extends CI_Controller
 				if(!empty($kodepegawai)){
 					$datapengguna = array(
 						'namapengguna'					=> $post['nip'],
-						'katakunci'							=> md5(trim(date_format(date_create($post['tanggallahir']),'Ymd'))),
+						'katakunci'							=> md5(trim(date_format(date_create($post['tanggallahir']),'dmY'))),
 						'kodepegawai'						=> (int)$kodepegawai,
 						'kodeperan'							=> 3,
 						'dibuatpada'						=> date('Y-m-d H:i:s'),
