@@ -24,7 +24,13 @@ class M_auth extends CI_Model
 			{
 				$result['valid'] = true;
 				$result['kode'] = $data->kode;
-				$result['namapengguna'] = $data->namapengguna;
+				if ($data->kodeperan == 3) {
+					$q2 = $this->db->get_where('pegawai', array('kode' => $data->kodepegawai));
+					$d2 = $q2->row();
+					$result['namapengguna'] = $d2->namalengkap;
+				} else {
+					$result['namapengguna'] = $data->namapengguna;
+				}
 				$result['kodepegawai'] = $data->kodepegawai;
 				$result['kodeperan'] = $data->kodeperan;
 			}

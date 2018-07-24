@@ -107,7 +107,7 @@
                     <label for="text-input" class=" form-control-label">UNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->unitkerja) ? $detail[0]->unitkerja : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->unitkerja) ? $detail[0]->unitkerja : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row form-group">
@@ -115,7 +115,7 @@
                     <label for="text-input" class=" form-control-label">SUBUNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->subunitkerja) ? $detail[0]->subunitkerja : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->subunitkerja) ? $detail[0]->subunitkerja : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row form-group">
@@ -123,7 +123,7 @@
                     <label for="text-input" class=" form-control-label">SUB SUBUNIT KERJA*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->subsubunitkerja) ? $detail[0]->subsubunitkerja : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->subsubunitkerja) ? $detail[0]->subsubunitkerja : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
               </div>
@@ -136,7 +136,7 @@
                     <label for="text-input" class=" form-control-label">NO. INDUK PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->nip) ? $detail[0]->nip : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->nip) ? $detail[0]->nip : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row form-group">
@@ -144,7 +144,7 @@
                     <label for="text-input" class=" form-control-label">NAMA LENGKAP*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->namalengkap) ? $detail[0]->namalengkap : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->namalengkap) ? $detail[0]->namalengkap : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row form-group">
@@ -152,7 +152,7 @@
                     <label for="text-input" class=" form-control-label">JENIS KELAMIN*</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" id="" name="" value="<?php if($detail[0]->jeniskelamin == 'L'){echo 'Laki-Laki';}elseif($detail[0]->jeniskelamin == 'P'){echo 'Perempuan';}?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?php if($detail[0]->jeniskelamin == 'L'){echo 'Laki-Laki';}elseif($detail[0]->jeniskelamin == 'P'){echo 'Perempuan';}?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row form-group">
@@ -160,7 +160,7 @@
                     <label for="text-input" class=" form-control-label">STATUS PEGAWAI*</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->statuspegawai) ? $detail[0]->statuspegawai : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->statuspegawai) ? $detail[0]->statuspegawai : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
 
@@ -174,7 +174,7 @@
                     <label for="text-input" class=" form-control-label">NAMA PANGKAT*</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->namapangkat) ? $detail[0]->namapangkat : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->namapangkat) ? $detail[0]->namapangkat : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@
                     <label for="text-input" class=" form-control-label">JABATAN*</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" id="" name="" value="<?=!empty($detail[0]->jabatan) ? $detail[0]->jabatan : null?>" placeholder="" class="form-control">
+                    <input type="text" id="" name="" value="<?=!empty($detail[0]->jabatan) ? $detail[0]->jabatan : null?>" placeholder="" class="form-control" disabled>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-info">

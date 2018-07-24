@@ -62,7 +62,9 @@
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">Tabel Pegawai Ijin & Cuti</strong>
-                        <a href="<?=site_url()?>cuti/addcuti" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Pengajuan Cuti</a>
+                        <?php if ($this->session->userdata['kodeperan'] == 3) {
+                          echo '<a href="'.site_url().'cuti/addcuti" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Pengajuan Cuti</a>';
+                        }?>
                     </div>
                     <div class="card-body">
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -76,7 +78,7 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="CutiStatus">
                   <?php
                     foreach ($cuti as $key => $value) {
                   ?>
@@ -85,20 +87,39 @@
                     <td><?=$value->namalengkap?></td>
                     <td><?=$value->unitkerja?></td>
                     <td><?=$value->mulaicuti?></td>
-                    <td>
+                    <td id="status<?=$value->kode?>">
                       <?php
-                        if($value->pengajuan == '1'){
-                          echo "Pengajuan";
-                        }elseif($value->batal == '1'){
+                        if($value->batal == '1'){
                           echo "Dibatalkan";
                         }elseif($value->ditolak == '1'){
                           echo "Ditolak";
                         }elseif($value->disetujui == '1'){
                           echo "Disetujui";
+                        }else{
+                          echo "Pengajuan";
                         }
                       ?>
                     </td>
-                    <td></td>
+                    <td id="aksi<?=$value->kode?>">
+                      <?php
+                        if ($value->batal == '0' && $value->ditolak == '0' && $value->disetujui == '0') {
+                      ?>
+                        <div class="dropdown float-right">
+                            <div class="dropdown-toggle mr-4" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="dropdown-menu-content">
+                                  <a class="dropdown-item batal" kode="<?=$value->kode?>" status="batal" value="1">Batal</a>
+                                  <a class="dropdown-item setuju" kode="<?=$value->kode?>" status="setuju" value="1">Setuju</a>
+                                  <a class="dropdown-item tolak" kode="<?=$value->kode?>" status="tolak" value="1">Tolak</a>
+                                </div>
+                            </div>
+                        </div>
+                      <?php
+                        }
+                      ?>
+                    </td>
                   </tr>
                   <?php
                     }

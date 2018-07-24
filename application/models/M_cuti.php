@@ -19,6 +19,7 @@ class M_cuti extends CI_Model
 		$this->db->join('pegawai p','pc.kodepegawai=p.kode');
 		$this->db->join('tmtlokasikerja tl','p.kode=tl.kodepegawai');
 		$this->db->join('unitkerja uk','tl.kodeunitkerja=uk.kode');
+		$this->db->where('tl.aktif', '1');
 		$query = $this->db->get();
 		$result = $query->result();
 

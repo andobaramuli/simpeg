@@ -62,7 +62,9 @@
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">Tabel Pegawai</strong>
-                        <a href="<?=site_url()?>biodata/addbiodata" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Tambah Pegawai</a>
+                        <?php if($this->session->userdata['kodeperan'] != 3){
+                          echo '<a href="'.site_url().'biodata/addbiodata" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Tambah Pegawai</a>';
+                        }?>
                     </div>
                     <div class="card-body">
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -84,7 +86,18 @@
                     <td><?=$value->namalengkap?></td>
                     <td><?=$value->unitkerja?></td>
                     <td><?=$value->jabatan?></td>
-                    <td></td>
+                    <td>
+                      <div class="dropdown float-right">
+                          <div class="dropdown-toggle mr-2" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-cog"></i>
+                          </div>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="<?=site_url().'biodata/detailbiodata/'.$value->kode?>">Lihat Detail</a>
+                              </div>
+                          </div>
+                      </div>
+                    </td>
                   </tr>
                   <?php
                     }

@@ -21,6 +21,11 @@ class Cuti extends CI_Controller
 	public function index()
 	{
 		$data['cuti'] = $this->m_cuti->getPegawaiCuti();
+		foreach ($data['cuti'] as $key => $value) {
+			if (!empty($data['cuti'][$key]->mulaicuti)) {
+				$data['cuti'][$key]->mulaicuti = date_format(date_create($value->mulaicuti),'d-m-Y');
+			}
+		}
 		$this->layout->dressing("cuti/cuti",$data);
 	}
 
@@ -67,6 +72,42 @@ class Cuti extends CI_Controller
 			$data['detail'] = $this->m_cuti->getPegawai($this->session->userdata['kodepegawai']);
 			$this->layout->dressing("cuti/cutiinput",$data);
 		}
+	}
+
+	public function updatestatus()
+	{
+		$post = $this->input->post();
+		$userdata = $this->session->userdata;
+
+		if ($post['status'] == 'batal') {
+			$updatecuti = array(
+				'batal' 			=> '1',
+				'diubahpada' 	=> date('Y-m-d H:i:s'),
+				'diubaholeh' 	=> (int)$userdata['kodepengguna'],
+			);
+		} elseif ($post['status'] == 'setuju') {
+			$updatecuti = array(
+				'disetujui' 				=> '1',
+				'disetujuitanggal' 	=> date('Y-m-d H:i:s'),
+				'diubahpada' 				=> date('Y-m-d H:i:s'),
+				'diubaholeh' 				=> (int)$userdata['kodepengguna'],
+			);
+		} elseif ($post['status'] == 'tolak') {
+			$updatecuti = array(
+				'ditolak' 				=> '1',
+				'ditolaktanggal' 	=> date('Y-m-d H:i:s'),
+				'diubahpada'			=> date('Y-m-d H:i:s'),
+				'diubaholeh'			=> (int)$userdata['kodepengguna'],
+			);
+		}
+
+		$kode = array(
+			'name'	=> 'kode',
+			'id' 		=> (int)$post['kodecuti']
+		);
+		$this->m_general->updateData('pegawaicuti', $updatecuti, $kode);
+
+		echo json_encode([]);
 	}
 
 }

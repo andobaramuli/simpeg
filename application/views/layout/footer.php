@@ -15,6 +15,8 @@
 <script src="<?=base_url()?>assets/css/lib/daterangepicker/moment.min.js"></script>
 <script src="<?=base_url()?>assets/css/lib/daterangepicker/daterangepicker.js"></script>
 <script src="<?=base_url()?>assets/js/biodata.js"></script>
+<script src="<?=base_url()?>assets/js/cuti.js"></script>
+<script src="<?=base_url()?>assets/js/nominatif.js"></script>
 <script src="<?=base_url()?>assets/js/main.js"></script>
 
 
