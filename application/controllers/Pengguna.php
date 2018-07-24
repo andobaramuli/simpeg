@@ -5,16 +5,13 @@
  *
  **/
 
-class Biodata extends CI_Controller
+class Pengguna extends CI_Controller
 {
 	function __construct()
   {
 		parent::__construct();
 		$this->load->model('m_general');
-		$this->load->model('m_biodata');
-		$this->load->model('m_uk');
-		$this->load->model('m_suk');
-		$this->load->model('m_ssuk');
+		$this->load->model('m_pengguna');
 
 		if(!$this->session){
 			redirect('auth/logout');
@@ -23,8 +20,8 @@ class Biodata extends CI_Controller
 
 	public function index()
 	{
-		$data['pegawai'] = $this->m_biodata->getPegawai();
-		$this->layout->dressing("biodata/biodata",$data);
+		$data['pengguna'] = $this->m_pengguna->getPengguna();
+		$this->layout->dressing("pengguna/pengguna",$data);
 	}
 
 	public function addbiodata()
@@ -164,20 +161,4 @@ class Biodata extends CI_Controller
 			$this->layout->dressing("biodata/biodatainput",$data);
 		}
 	}
-
-	public function getsuk(){
-		$data = $this->input->post();
-
-		$suk = $this->m_biodata->getSubUnitKerja($data['ukid']);
-		echo json_encode($suk);
-	}
-
-	public function getssuk(){
-		$data = $this->input->post();
-
-		$ssuk = $this->m_biodata->getSubSubUnitKerja($data['sukid']);
-		echo json_encode($ssuk);
-	}
-
-
 }

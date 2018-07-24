@@ -38,7 +38,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Ijin & Cuti</h1>
+                    <h1>Pengguna</h1>
                 </div>
             </div>
         </div>
@@ -46,8 +46,8 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">Kepegawaian</a></li>
-                        <li class="active">Ijin & Cuti</li>
+                        <li><a href="#">Pengaturan </a></li>
+                        <li class="active">Pengguna</li>
                     </ol>
                 </div>
             </div>
@@ -61,43 +61,31 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Tabel Pegawai Ijin & Cuti</strong>
-                        <a href="<?=site_url()?>cuti/addcuti" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Pengajuan Cuti</a>
+                        <strong class="card-title">Tabel Pengguna</strong>
+                        <!-- <a href="<?=site_url()?>" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp; Tambah Pengguna</a> -->
                     </div>
                     <div class="card-body">
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Nama</th>
-                    <th>Unit Kerja</th>
-                    <th>Tanggal Cuti</th>
-                    <th>Status</th>
+                    <th>Nama Pegawai</th>
+                    <th>Nama Pengguna</th>
+                    <th>Peran</th>
+                    <th>Dibuat Pada</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    foreach ($cuti as $key => $value) {
+                    foreach ($pengguna as $key => $value) {
                   ?>
                   <tr>
                     <td><?=$key+1?></td>
                     <td><?=$value->namalengkap?></td>
-                    <td><?=$value->unitkerja?></td>
-                    <td><?=$value->mulaicuti?></td>
-                    <td>
-                      <?php
-                        if($value->pengajuan == '1'){
-                          echo "Pengajuan";
-                        }elseif($value->batal == '1'){
-                          echo "Dibatalkan";
-                        }elseif($value->ditolak == '1'){
-                          echo "Ditolak";
-                        }elseif($value->disetujui == '1'){
-                          echo "Disetujui";
-                        }
-                      ?>
-                    </td>
+                    <td><?=$value->namapengguna?></td>
+                    <td><?=$value->peran?></td>
+                    <td><?=$value->dibuatpada?></td>
                     <td></td>
                   </tr>
                   <?php

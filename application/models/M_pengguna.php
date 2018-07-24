@@ -5,39 +5,22 @@
  *
  **/
 
-class M_auth extends CI_Model
+class M_pengguna extends CI_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
 	}
 
-	public function verifyLogin($username, $password)
+	public function getPengguna()
 	{
-		$query = $this->db->get_where('pengguna', array('namapengguna' => $username));
-		$data = $query->row();
-		$result = array();
+		$this->db->select('p1.kode, p2.namalengkap, p1.namapengguna, p3.peran, p1.dibuatpada');
+		$this->db->from('pengguna p1');
+		$this->db->join('pegawai p2', 'p1.kodepegawai = p2.kode', 'left');
+		$this->db->join('peran p3', 'p1.kodeperan = p3.kode', 'left');
+		$query = $this->db->get();
+		$result = $query->result();
 
-		if(count($data) > 0)
-		{
-			if(md5(trim($password)) == $data->katakunci)
-			{
-				$result['valid'] = true;
-				$result['kode'] = $data->kode;
-				$result['namapengguna'] = $data->namapengguna;
-				$result['kodepegawai'] = $data->kodepegawai;
-				$result['kodeperan'] = $data->kodeperan;
-			}
-			else
-			{
-				$result['valid'] = false;
-			}
-			return $result;
-		}
-		else
-		{
-			$result['valid'] = false;
-			return $result;
-		}
+		return $result;
 	}
 }

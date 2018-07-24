@@ -13,7 +13,7 @@ class Nominatif extends CI_Controller
 		$this->load->model('m_nominatif');
 		$this->load->model('m_uk');
 
-		if(empty($this->session)){
+		if(!$this->session){
 			redirect('auth/logout');
 		}
 	}

@@ -35,7 +35,7 @@
 
           <h3 class="menu-title">PENGATURAN</h3><!-- /.menu-title -->
           <li>
-              <a href="<?=site_url()?>user/index"> <i class="menu-icon ti-user"></i>Pengguna </a>
+              <a href="<?=site_url()?>pengguna/index"> <i class="menu-icon ti-user"></i>Pengguna </a>
               <a href="<?=site_url()?>uk/index"> <i class="menu-icon ti-file"></i>Unit Kerja </a>
               <a href="<?=site_url()?>suk/index"> <i class="menu-icon ti-files"></i>Sub Unit Kerja </a>
               <a href="<?=site_url()?>ssuk/index"> <i class="menu-icon ti-files"></i>Sub Sub Unit Kerja </a>
@@ -62,7 +62,7 @@
 
           <h3 class="menu-title">PENGATURAN</h3><!-- /.menu-title -->
           <li>
-              <a href="<?=site_url()?>user/index"> <i class="menu-icon ti-user"></i>Pengguna </a>
+              <a href="<?=site_url()?>pengguna/index"> <i class="menu-icon ti-user"></i>Pengguna </a>
               <a href="<?=site_url()?>uk/index"> <i class="menu-icon ti-file"></i>Unit Kerja </a>
               <a href="<?=site_url()?>suk/index"> <i class="menu-icon ti-files"></i>Sub Unit Kerja </a>
               <a href="<?=site_url()?>ssuk/index"> <i class="menu-icon ti-files"></i>Sub Sub Unit Kerja </a>

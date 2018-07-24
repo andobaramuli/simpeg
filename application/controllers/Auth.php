@@ -14,7 +14,7 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->session->userdata('user_username')) {
+		if ($this->session->userdata('namapengguna')) {
 
 		} else {
 			redirect('auth/login', 'refresh');
@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
       else
       {
   			$result = $this->m_auth->verifyLogin($username, $password);
-				
+
         if ($result['valid'])
         {
   				$userdata = array(
