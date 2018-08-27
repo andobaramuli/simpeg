@@ -111,8 +111,14 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div class="dropdown-menu-content">
                                   <a class="dropdown-item batal" kode="<?=$value->kode?>" status="batal" value="1">Batal</a>
-                                  <a class="dropdown-item setuju" kode="<?=$value->kode?>" status="setuju" value="1">Setuju</a>
-                                  <a class="dropdown-item tolak" kode="<?=$value->kode?>" status="tolak" value="1">Tolak</a>
+                                  <?php
+                                    if ($this->session->userdata['kodeperan'] == 2) {
+                                  ?>
+                                      <a class="dropdown-item setuju" kode="<?=$value->kode?>" status="setuju" value="1">Setuju</a>
+                                      <a class="dropdown-item tolak" kode="<?=$value->kode?>" status="tolak" value="1">Tolak</a>
+                                  <?php
+                                    }
+                                  ?>
                                 </div>
                             </div>
                         </div>
